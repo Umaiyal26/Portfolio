@@ -1,104 +1,317 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Umaiyalakshmi's Portfolio</title>
     <style>
-	header {
-    text-align: center;
-    margin-bottom: 20px;
-}
+        /* General Styles */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Poppins', sans-serif;
+            background: #f4f4f4;
             color: #333;
-        }
-
-        h1, h2, h3 {
-            margin: 0;
+            line-height: 1.6;
         }
 
         a {
             text-decoration: none;
-            color: white;
+            color: inherit;
         }
 
-        .btn {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            margin-top: 20px;
-            transition: background-color 0.3s;
+        h1, h2, h3, h4 {
+            margin: 0;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
             display: inline-block;
-            text-align: center;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: #ff4757;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: background 0.3s ease;
         }
 
-        .btn:hover {
-            background-color: #0056b3;
+        .btn-primary:hover {
+            background: #e84142;
         }
-        .profile-summary {
-            text-align: center;
-            max-width: 600px;
+
+        /* Profile Section */
+        .container {
+            max-width: 1200px;
             margin: auto;
             padding: 20px;
         }
 
-        .profile-pic {
-            width: 150px;
-            height: 150px;
+        .profile {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .profile img {
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
+            border: 5px solid #007BFF;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
             margin-bottom: 20px;
         }
 
-        .resume {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
+        .profile p {
+            font-size: 1.2rem;
+            color: #555;
             max-width: 800px;
-            text-align: left;
-            margin: auto;
-            padding: 20px;
+            margin: 20px auto;
+            line-height: 1.8;
         }
 
-        .resume-section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #444;
-        }
-
-        .download-btn {
-            margin-top: 20px;
-        }
-        .link-container {
+        /* Section Titles */
+        section h2 {
             text-align: center;
-            margin-top: 20px;
+            font-size: 2rem;
+            margin: 20px 0 40px;
+            color: #007BFF;
+            position: relative;
+        }
+
+        section h2::after {
+            content: "";
+            width: 60px;
+            height: 4px;
+            background: #ff4757;
+            display: block;
+            margin: 10px auto;
+            border-radius: 5px;
+        }
+
+        /* Projects Section */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        .project h3 {
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #007BFF;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #0056b3;
+        }
+
+        /* Toggleable Sections */
+        .toggle-container {
+            margin: 20px 0;
+        }
+
+        .toggle-header {
+            background: #fff;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .toggle-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #007BFF;
+        }
+
+        .toggle-header span {
+            font-size: 1.5rem;
+            color: #007BFF;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="checkbox"]:checked + .toggle-header span {
+            transform: rotate(180deg);
+        }
+
+        .toggle-details {
+            display: none;
+            padding: 20px;
+            background: #f4f8ff;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        input[type="checkbox"]:checked ~ .toggle-details {
+            display: block;
+        }
+
+        .toggle-details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toggle-details ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: #007BFF;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
         }
     </style>
 </head>
-<body>
-    <div id="page1">
-        <header>
-            <h1>Portfolio</h1>
-        </header>
-        <main>
-            <section class="profile-summary">
-                <img src="Umaiyalakshmi_Photo.jpg" alt="Profile Picture" class="profile-pic">
-                <h2>Umaiyalakshmi</h2>
-		<h4>Course Instructor @ IC&SR, IITM</h4>
-                <p> I have 3 years of experience teaching college students and individuals transitioning to the IT industry. I specialize in Data Structures and Algorithms (DSA) using Java, Python, C, and C++, as well as web technologies such as HTML, CSS, JavaScript, and MySQL.<br><br>
-		In addition, I have developed DSA content, created tests for colleges, and worked with the hiring team, where I was responsible for setting interview questions and conducting interviews. I have also managed a team, ensuring smooth coordination and effective results.<br><br>
-		Through FACEPrep, I have trained students from reputed universities and colleges like VIT, SRM, Sathyabama, and Chitkara.</p>
 
-            </section>
-            <div class="link-container">
-                <a href="page2.html" class="btn"> Resume</a>
+<body>
+    <header>
+        <h1>Umaiyalakshmi</h1>
+        <h2>Senior Coding Mentor | Full-Stack Developer | Educator</h2>
+        <a href="#contact" class="btn-primary">Contact Me</a>
+    </header>
+
+    <div class="container">
+        <section class="profile">
+            <img src="Umaiyalakshmi_Photo.jpg" alt="Umaiyalakshmi">
+            <p>
+                I have 3 years of experience teaching college students and individuals transitioning to the IT industry. I specialize in Data Structures and Algorithms (DSA) using Java, Python, C, and C++, as well as web technologies such as HTML, CSS, JavaScript, and MySQL.<br><br>
+                I have developed DSA content, created tests for colleges, and worked with the hiring team to set interview questions and conduct interviews. Through FACEPrep, I have trained students from reputed universities and colleges like VIT, SRM, and Chitkara.
+            </p>
+        </section>
+
+        <!-- Toggleable Sections -->
+        <div class="toggle-container">
+            <input type="checkbox" id="experience-toggle">
+            <label for="experience-toggle" class="toggle-header">
+                <h3>Professional Experience</h3>
+                <span>▼</span>
+            </label>
+            <div class="toggle-details">
+                <ul>
+                    <li>Senior Coding Mentor at FACEPrep <b>(Jun 2021 - Aug 2024)</b></li>
+                    <ol><li>Created content on DSA, designed college tests, and managed a team.</li>
+                    <li>Conducted interviews and set technical questions for hiring processes.</li>
+                    <li>Trained students from universities like VIT, SRM, Sathyabama, and Chitkara.</li></ol>
+                </ul>
             </div>
-        </main>
+        </div>
+
+        <div class="toggle-container">
+            <input type="checkbox" id="achievements-toggle">
+            <label for="achievements-toggle" class="toggle-header">
+                <h3>Achievements</h3>
+                <span>▼</span>
+            </label>
+            <div class="toggle-details">
+                <ul>
+                    <li>Received Trainer of the Year in 2022, where I trained students in both B2B and B2C</li>
+                    <li>Received Applause Award in 2023 for successfully working with Freshworks STS Academy,where I have trained students on Java</li>
+                    <li>Consistently maintained high student satisfaction scores </li>
+		    <li>Creating the complete course of DSA in Java and python</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="toggle-container">
+            <input type="checkbox" id="skills-toggle">
+            <label for="skills-toggle" class="toggle-header">
+                <h3>Personal and Technical Skills</h3>
+                <span>▼</span>
+            </label>
+            <div class="toggle-details">
+                <ul>
+                    <li><b>Technical:</b> Proficient in DSA, Java, Python, C, C++, HTML, CSS, JS, and MySQL.</li>
+                    <li><b>Personal:</b> Strong communication skills, teamwork, and adaptability.</li>
+                    <li><b>Managerial:</b> Experienced in managing teams and guiding them to deliver results.</li>
+                </ul>
+            </div>
+        </div>
+	</section>
+
+        <section class="resume">
+            <h2>Resume</h2>
+            <p>Download a copy of my resume for more details.</p>
+            <a href="UMAIYALAKSHMI_U_Resume_.pdf" download class="btn">Download Resume</a>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <ul>
+                <li>Email: umaiyalakshmiumakanth@gmail.com</li>
+                <li>Phone: +91 9159569856</li>
+                <li><a href="https://www.linkedin.com/in/umaiyalakshmiumakanth">LinkedIn</a></li>
+                <li><a href="https://github.com/Umaiyal26">GitHub</a></li>
+            </ul>
+        </section>
+
     </div>
+
+    <footer>
+        <p>&copy; 2025 Umaiyalakshmi. All Rights Reserved.</p>
+    </footer>
 </body>
+
 </html>
+
